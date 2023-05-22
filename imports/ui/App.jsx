@@ -48,9 +48,8 @@ export const App = () => {
     return TasksCollection.find(pendingOnlyFilter).count();
   });
 
-  const pendingTasksTitle = `${
-    pendingTasksCount ? ` (${pendingTasksCount})` : ''
-  }`;
+  const pendingTasksTitle = `${pendingTasksCount ? ` (${pendingTasksCount})` : ''
+    }`;
 
   const logout = () => Meteor.logout();
 
@@ -71,7 +70,7 @@ export const App = () => {
         {user ? (
           <Fragment>
             <div className="user" onClick={logout}>
-              {user.username} 🚪
+              {user.username || user.profile.name} 🚪
             </div>
 
             <TaskForm user={user} />
